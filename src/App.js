@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+
 import Box from "./components/Box";
 import { markerPos, disabledPos } from "./components/BoxProps";
 
@@ -11,6 +12,7 @@ function App() {
     // Create a new array
     const newArr = [];
 
+    // Loop through total boxes (13 * 13)
     for (let i = 0; i < 169; i++) {
       // Define a property of each box
       const box = {
@@ -19,11 +21,11 @@ function App() {
         disabled: false,
       };
 
-      // Push box intu new array
+      // Push box into new array
       newArr.push(box);
     }
 
-    // newArr at the index of number will be asigned a marker or disabled props
+    // newArr at the index of number will be asigned a marker and disabled props
     markerPos.map((number, i) => {
       newArr[number].marker = i + 1;
     });

@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-import { useState, useEffect } from "react";
-
 export default function Box({ marker, disabled }) {
   return (
     <BoxStyled>
+      {/* Add marker if it's greater than 0 */}
       {marker > 0 && <div className="marker">{marker}</div>}
+
+      {/* Conditional rendering based on disabled props */}
 
       {disabled ? (
         <input disabled className="input-box" type="text" />
