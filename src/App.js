@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Box from "./components/Box";
+import { markerPos, disabledPos } from "./components/BoxProps";
 
 function App() {
   // Initiate an empty array of boxes
   const [boxes, setBoxes] = useState([]);
-
-  // Black property for each box in array
-  const black = [];
-
-  // Marker props for each box in the array
-  // based on index of boxes
-  const marker = [0, 3, 5, 8, 10, 12, 18, 28, 30];
 
   useEffect(() => {
     // Create a new arr
@@ -22,14 +16,20 @@ function App() {
       const box = {
         count: i,
         marker: 0,
+        disabled: false,
       };
 
       // Push box intu new array
       newArr.push(box);
     }
-    // newArr at the index of number will be asigner a new marker props
-    marker.map((number, i) => {
+
+    // newArr at the index of number will be asigned a marker or disabled props
+    markerPos.map((number, i) => {
       newArr[number].marker = i + 1;
+    });
+
+    disabledPos.map((pos, i) => {
+      newArr[pos].disabled = true;
     });
 
     // Set array into the state
@@ -39,11 +39,14 @@ function App() {
   return (
     <StyledApp>
       <div className="container">
-        <h1>Snake Board</h1>
+        <header>
+          <h1>Snake Board</h1>
+          <p>Umma Ahimsha</p>
+        </header>
 
         <div className="boxs-container">
           {boxes.map((box, index) => (
-            <Box mark={box.marker} key={index} />
+            <Box {...box} key={index} />
           ))}
         </div>
       </div>
@@ -69,7 +72,7 @@ const StyledApp = styled.div`
     flex-wrap: wrap;
   }
 
-  h1 {
+  header {
     padding: 2rem 0;
   }
 `;
