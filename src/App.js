@@ -40,7 +40,7 @@ function App() {
     <StyledApp>
       <div className="container">
         <header>
-          <h1>Snake Board</h1>
+          <h1>Snake Board (?)</h1>
           <p>Umma Ahimsha</p>
         </header>
 
