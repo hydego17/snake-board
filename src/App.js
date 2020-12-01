@@ -8,7 +8,7 @@ function App() {
   const [boxes, setBoxes] = useState([]);
 
   useEffect(() => {
-    // Create a new arr
+    // Create a new array
     const newArr = [];
 
     for (let i = 0; i < 169; i++) {
@@ -45,9 +45,13 @@ function App() {
         </header>
 
         <div className="boxs-container">
-          {boxes.map((box, index) => (
-            <Box {...box} key={index} />
-          ))}
+          {
+            // Map throu each box and display them as <Box/> component
+
+            boxes.map((box, index) => (
+              <Box {...box} key={index} />
+            ))
+          }
         </div>
       </div>
     </StyledApp>
